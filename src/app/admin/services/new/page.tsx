@@ -347,7 +347,6 @@ export default function NewService() {
                         key={feature}
                         className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full flex items-center gap-1"
                       >
-                        <CheckIcon className="w-3 h-3" />
                         {feature}
                         <button
                           type="button"
@@ -414,7 +413,6 @@ export default function NewService() {
                         key={document}
                         className="px-3 py-1 text-sm bg-blue-100 text-blue-800 rounded-full flex items-center gap-1"
                       >
-                        <DocumentTextIcon className="w-3 h-3" />
                         {document}
                         <button
                           type="button"
@@ -439,7 +437,7 @@ export default function NewService() {
                   Service Image
                 </label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-indigo-400 transition-colors">
-                  <PhotoIcon className="mx-auto h-12 w-12 text-gray-400" />
+                  {/* <PhotoIcon className="mx-auto h-12 w-12 text-gray-400" /> */}
                   <div className="mt-2">
                     <label htmlFor="featuredImage" className="cursor-pointer">
                       <span className="text-indigo-600 hover:text-indigo-500 font-medium">
@@ -586,7 +584,7 @@ export default function NewService() {
                     Tags
                   </label>
                   <div className="flex">
-                    <TagIcon className="w-5 h-5 text-gray-400 mt-2 mr-2" />
+                    {/* <TagIcon className="w-5 h-5 text-gray-400 mt-2 mr-2" /> */}
                     <input
                       type="text"
                       id="tags"
