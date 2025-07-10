@@ -4,14 +4,7 @@ import { useState } from 'react';
 import { 
   PlusIcon, 
   MagnifyingGlassIcon,
-  FunnelIcon,
-  EyeIcon,
-  PencilIcon,
-  TrashIcon,
-  Cog6ToothIcon,
-  DocumentTextIcon,
-  PhoneIcon,
-  GlobeAltIcon
+  FunnelIcon
 } from '@heroicons/react/24/outline';
 
 export default function ServicesManagement() {
@@ -26,7 +19,7 @@ export default function ServicesManagement() {
       description: 'Apply for building permits and construction licenses for residential and commercial projects.',
       category: 'Permits',
       status: 'Active',
-      icon: DocumentTextIcon,
+      icon: 'DocumentTextIcon',
       contactInfo: '+357 22 123456',
       website: 'https://permits.example.com',
       image: '/api/placeholder/400/250',
@@ -38,7 +31,7 @@ export default function ServicesManagement() {
       description: 'Schedule waste collection services and learn about recycling programs.',
       category: 'Utilities',
       status: 'Active',
-      icon: Cog6ToothIcon,
+      icon: 'Cog6ToothIcon',
       contactInfo: '+357 22 123457',
       website: 'https://waste.example.com',
       image: '/api/placeholder/400/250',
@@ -50,7 +43,7 @@ export default function ServicesManagement() {
       description: 'Register new businesses and obtain business licenses and permits.',
       category: 'Business',
       status: 'Active',
-      icon: DocumentTextIcon,
+      icon: 'DocumentTextIcon',
       contactInfo: '+357 22 123458',
       website: 'https://business.example.com',
       image: '/api/placeholder/400/250',
@@ -62,7 +55,7 @@ export default function ServicesManagement() {
       description: 'Information about bus routes, schedules, and public transportation services.',
       category: 'Transportation',
       status: 'Active',
-      icon: Cog6ToothIcon,
+      icon: 'Cog6ToothIcon',
       contactInfo: '+357 22 123459',
       website: 'https://transport.example.com',
       image: '/api/placeholder/400/250',
@@ -205,11 +198,9 @@ export default function ServicesManagement() {
                 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <PhoneIcon className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{service.contactInfo}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <GlobeAltIcon className="w-4 h-4 flex-shrink-0" />
                     <span className="truncate">{service.website}</span>
                   </div>
                 </div>
@@ -233,13 +224,25 @@ export default function ServicesManagement() {
                 <div className="flex items-center justify-between">
                   <div className="flex gap-2">
                     <button className="text-indigo-600 hover:text-indigo-900 p-1" title="View">
-                      <EyeIcon className="w-4 h-4" />
+                      <span className="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.644l1.757-3.516a.5.5 0 01.42-.24H21a.5.5 0 01.42.24l1.757 3.516a1.012 1.012 0 010 .644l-1.757 3.516a.5.5 0 01-.42.24H4.467a.5.5 0 01-.42-.24L2.036 12.322z" />
+                        </svg>
+                      </span>
                     </button>
                     <button className="text-blue-600 hover:text-blue-900 p-1" title="Edit">
-                      <PencilIcon className="w-4 h-4" />
+                      <span className="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.58 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                        </svg>
+                      </span>
                     </button>
                     <button className="text-red-600 hover:text-red-900 p-1" title="Delete">
-                      <TrashIcon className="w-4 h-4" />
+                      <span className="w-4 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9 0a3 3 0 11-6 0 3 3 0 016 0zm-12 0a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </span>
                     </button>
                   </div>
                 </div>

@@ -3,12 +3,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { 
   ArrowLeftIcon,
-  DocumentTextIcon,
   PhotoIcon,
   TagIcon,
   GlobeAltIcon,
   FolderIcon,
-  LockClosedIcon,
   EyeIcon
 } from '@heroicons/react/24/outline';
 

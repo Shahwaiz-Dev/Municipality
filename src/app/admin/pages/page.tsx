@@ -4,14 +4,7 @@ import { useState } from 'react';
 import { 
   PlusIcon, 
   MagnifyingGlassIcon,
-  FunnelIcon,
-  EyeIcon,
-  PencilIcon,
-  TrashIcon,
-  DocumentTextIcon,
-  FolderIcon,
-  GlobeAltIcon,
-  LockClosedIcon
+  FunnelIcon
 } from '@heroicons/react/24/outline';
 
 export default function PagesManagement() {
@@ -212,11 +205,17 @@ export default function PagesManagement() {
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         {page.isHomepage ? (
-                          <GlobeAltIcon className="w-6 h-6 text-indigo-600" />
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-indigo-600">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.25-8.25-3.75 3.75M21.75 12l-8.25 8.25-3.75-3.75" />
+                          </svg>
                         ) : page.hasChildren ? (
-                          <FolderIcon className="w-6 h-6 text-blue-600" />
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-blue-600">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6V4.5A2.25 2.25 0 016 2.25h1.5m0 0H21A2.25 2.25 0 0123.25 4.5v1.5m0 0H6m18 0V19.5A2.25 2.25 0 0121 21.75H19.5m0 0h-18M21 19.5V12" />
+                          </svg>
                         ) : (
-                          <DocumentTextIcon className="w-6 h-6 text-gray-600" />
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-600">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H6A2.25 2.25 0 003.75 4.5v1.5m18 0V19.5A2.25 2.25 0 0121 21.75H19.5" />
+                          </svg>
                         )}
                       </div>
                       <div className="ml-3 lg:ml-4 min-w-0 flex-1">
@@ -263,14 +262,20 @@ export default function PagesManagement() {
                   <td className="px-4 lg:px-6 py-4 text-right text-sm font-medium">
                     <div className="flex items-center justify-end gap-1 lg:gap-2">
                       <button className="text-indigo-600 hover:text-indigo-900 p-1" title="View">
-                        <EyeIcon className="w-4 h-4" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.678.07.207.106.43.107.639V11a1.5 1.5 0 01-3 0V5.834c0-.08-.01-.16-.03-.238A9.004 9.004 0 0012 2.25c-1.797 0-3.55.575-5 1.555V11a1.5 1.5 0 01-3 0v5.166z" />
+                        </svg>
                       </button>
                       <button className="text-blue-600 hover:text-blue-900 p-1" title="Edit">
-                        <PencilIcon className="w-4 h-4" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.58 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                        </svg>
                       </button>
                       {!page.isHomepage && (
                         <button className="text-red-600 hover:text-red-900 p-1" title="Delete">
-                          <TrashIcon className="w-4 h-4" />
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v13a2 2 0 002 2h12a2 2 0 002-2z" />
+                          </svg>
                         </button>
                       )}
                     </div>
@@ -287,15 +292,21 @@ export default function PagesManagement() {
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Page Structure</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           <div className="flex items-center gap-3">
-            <GlobeAltIcon className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-indigo-600 flex-shrink-0">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.25-8.25-3.75 3.75M21.75 12l-8.25 8.25-3.75-3.75" />
+            </svg>
             <span className="text-sm text-gray-600">Homepage</span>
           </div>
           <div className="flex items-center gap-3">
-            <FolderIcon className="w-5 h-5 text-blue-600 flex-shrink-0" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-blue-600 flex-shrink-0">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6V4.5A2.25 2.25 0 016 2.25h1.5m0 0H21A2.25 2.25 0 0123.25 4.5v1.5m0 0H6m18 0V19.5A2.25 2.25 0 0121 21.75H19.5m0 0h-18M21 19.5V12" />
+            </svg>
             <span className="text-sm text-gray-600">Parent Pages</span>
           </div>
           <div className="flex items-center gap-3">
-            <DocumentTextIcon className="w-5 h-5 text-gray-600 flex-shrink-0" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-600 flex-shrink-0">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H6A2.25 2.25 0 003.75 4.5v1.5m18 0V19.5A2.25 2.25 0 0121 21.75H19.5" />
+            </svg>
             <span className="text-sm text-gray-600">Content Pages</span>
           </div>
         </div>

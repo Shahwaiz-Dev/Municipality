@@ -15,7 +15,6 @@ const navLinks = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [showLogin, setShowLogin] = useState(true);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const pathname = usePathname();
@@ -25,7 +24,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const authStatus = localStorage.getItem('admin_authenticated');
     if (authStatus === 'true') {
       setIsAuthenticated(true);
-      setShowLogin(false);
     }
   }, []);
 
@@ -34,7 +32,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     // Simple password check - in production, this should be server-side
     if (password === 'admin123') {
       setIsAuthenticated(true);
-      setShowLogin(false);
       setError('');
       localStorage.setItem('admin_authenticated', 'true');
     } else {
@@ -44,7 +41,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    setShowLogin(true);
     localStorage.removeItem('admin_authenticated');
   };
 

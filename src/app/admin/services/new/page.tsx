@@ -5,13 +5,7 @@ import {
   ArrowLeftIcon,
   Cog6ToothIcon,
   PhoneIcon,
-  GlobeAltIcon,
-  DocumentTextIcon,
-  PhotoIcon,
-  TagIcon,
-  UserGroupIcon,
-  ClockIcon,
-  CheckIcon
+  GlobeAltIcon
 } from '@heroicons/react/24/outline';
 
 export default function NewService() {

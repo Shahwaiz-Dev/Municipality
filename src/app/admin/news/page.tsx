@@ -4,12 +4,7 @@ import { useState } from 'react';
 import { 
   PlusIcon, 
   MagnifyingGlassIcon,
-  FunnelIcon,
-  EyeIcon,
-  PencilIcon,
-  TrashIcon,
-  CalendarIcon,
-  UserIcon
+  FunnelIcon
 } from '@heroicons/react/24/outline';
 
 export default function NewsManagement() {
@@ -199,13 +194,11 @@ export default function NewsManagement() {
                   </td>
                   <td className="px-4 lg:px-6 py-4 hidden lg:table-cell">
                     <div className="flex items-center">
-                      <UserIcon className="w-4 h-4 text-gray-400 mr-2" />
                       <span className="text-sm text-gray-900">{article.author}</span>
                     </div>
                   </td>
                   <td className="px-4 lg:px-6 py-4 hidden xl:table-cell">
                     <div className="flex items-center">
-                      <CalendarIcon className="w-4 h-4 text-gray-400 mr-2" />
                       <span className="text-sm text-gray-900">{article.publishedAt}</span>
                     </div>
                   </td>

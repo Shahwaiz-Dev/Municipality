@@ -9,7 +9,6 @@ import {
   UserGroupIcon,
   PhotoIcon,
   VideoCameraIcon,
-  DocumentTextIcon,
   TagIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline';

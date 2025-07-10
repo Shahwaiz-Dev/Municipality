@@ -5,7 +5,6 @@ import {
   ArrowLeftIcon,
   PhotoIcon,
   VideoCameraIcon,
-  DocumentTextIcon,
   CalendarIcon,
   UserIcon,
   TagIcon
