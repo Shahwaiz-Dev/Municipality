@@ -28,9 +28,7 @@ export default function Home() {
               <div className="p-6">
                 <div className="text-sm text-accent font-medium mb-2">Municipal News</div>
                 <h3 className="text-xl font-semibold text-text-dark mb-3">New Community Center Opening</h3>
-                <p className="text-text-dark mb-4">
-                  We&apos;re excited to announce the opening of our new community center, providing modern facilities for all residents.
-                </p>
+                <p className="text-text-dark mb-4">We&apos;re excited to announce the opening of our new community center, providing modern facilities for all residents.</p>
                 <Button href="/news">Read More</Button>
               </div>
             </div>
@@ -62,9 +60,7 @@ export default function Home() {
               <div className="p-6">
                 <div className="text-sm text-zinc-600 font-medium mb-2">Services</div>
                 <h3 className="text-xl font-semibold text-text-dark mb-3">Online Services Available</h3>
-                <p className="text-text-dark mb-4">
-                  We&apos;ve launched new online services to make it easier for residents to access municipal services.
-                </p>
+                <p className="text-text-dark mb-4">We&apos;ve launched new online services to make it easier for residents to access municipal services.</p>
                 <Button href="/services">Explore Services</Button>
               </div>
             </div>
