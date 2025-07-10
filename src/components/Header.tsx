@@ -552,7 +552,7 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             {/* Subheader nav: remove horizontal scrollbar, allow wrapping */}
             <nav className="flex flex-wrap items-center space-x-2 py-2 relative overflow-visible">
-              {renderMenu(subNavList, 0, true)}
+              {renderMenu(subNavItems, 0, true)}
             </nav>
           </div>
         </div>
