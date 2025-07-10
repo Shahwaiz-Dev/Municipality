@@ -1,3 +1,11 @@
+# Government Website & CMS
+
+This project is structured as an integrated application with:
+- **Frontend:** Next.js (public website + admin panel)
+- **Backend:** Express.js + MongoDB (API for public and admin routes)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
