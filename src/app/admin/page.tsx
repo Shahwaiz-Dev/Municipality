@@ -5,10 +5,7 @@ import {
   CalendarIcon, 
   Cog6ToothIcon, 
   DocumentTextIcon,
-  PlusIcon,
-  EyeIcon,
-  PencilIcon,
-  TrashIcon
+  PlusIcon
 } from '@heroicons/react/24/outline';
 
 export default function AdminDashboard() {

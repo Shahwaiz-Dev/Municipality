@@ -204,14 +204,12 @@ export default function NewsManagement() {
                   </td>
                   <td className="px-4 lg:px-6 py-4 text-right text-sm font-medium">
                     <div className="flex items-center justify-end gap-1 lg:gap-2">
-                      <button className="text-indigo-600 hover:text-indigo-900 p-1" title="View">
-                        <EyeIcon className="w-4 h-4" />
-                      </button>
+                      
                       <button className="text-blue-600 hover:text-blue-900 p-1" title="Edit">
-                        <PencilIcon className="w-4 h-4" />
+                        ✏️
                       </button>
                       <button className="text-red-600 hover:text-red-900 p-1" title="Delete">
-                        <TrashIcon className="w-4 h-4" />
+                        🗑️
                       </button>
                     </div>
                   </td>

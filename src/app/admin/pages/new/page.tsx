@@ -220,22 +220,10 @@ export default function NewPage() {
                   <div className="border border-gray-300 rounded-lg">
                     <div className="flex items-center justify-between px-3 py-2 border-b border-gray-300 bg-gray-50">
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <DocumentTextIcon className="w-4 h-4" />
-                        Rich Text Editor
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <button type="button" className="p-1 text-gray-600 hover:text-gray-800">
-                          <span className="text-sm font-bold">B</span>
-                        </button>
-                        <button type="button" className="p-1 text-gray-600 hover:text-gray-800">
-                          <span className="text-sm italic">I</span>
-                        </button>
-                        <button type="button" className="p-1 text-gray-600 hover:text-gray-800">
-                          <span className="text-sm underline">U</span>
-                        </button>
-                        <button type="button" className="p-1 text-gray-600 hover:text-gray-800">
-                          <span className="text-sm">Link</span>
-                        </button>
+                        <span className="text-sm font-bold">B</span>
+                        <span className="text-sm italic">I</span>
+                        <span className="text-sm underline">U</span>
+                        <span className="text-sm">Link</span>
                       </div>
                     </div>
                     <textarea
@@ -500,7 +488,10 @@ export default function NewPage() {
                 </>
               ) : (
                 <>
-                  <DocumentTextIcon className="w-4 h-4" />
+                  <span className="text-sm font-bold">B</span>
+                  <span className="text-sm italic">I</span>
+                  <span className="text-sm underline">U</span>
+                  <span className="text-sm">Link</span>
                   Create Page
                 </>
               )}
