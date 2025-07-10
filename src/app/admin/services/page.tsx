@@ -1,10 +1,12 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { 
-  PlusIcon, 
+import {
+  PlusIcon,
   MagnifyingGlassIcon,
-  FunnelIcon
+  FunnelIcon,
+  DocumentTextIcon,
+  Cog6ToothIcon
 } from '@heroicons/react/24/outline';
 
 export default function ServicesManagement() {
@@ -99,6 +101,11 @@ export default function ServicesManagement() {
     }
   };
 
+  const iconMap = {
+    DocumentTextIcon,
+    Cog6ToothIcon,
+  };
+
   return (
     <div className="space-y-4 lg:space-y-6">
       {/* Header */}
@@ -107,7 +114,7 @@ export default function ServicesManagement() {
           <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">Services Management</h1>
           <p className="text-gray-600 mt-1">Manage municipal services and online applications.</p>
         </div>
-        <Link 
+        <Link
           href="/admin/services/new"
           className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2 justify-center sm:justify-start w-full sm:w-auto"
         >
@@ -166,12 +173,12 @@ export default function ServicesManagement() {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {filteredServices.map((service) => {
-          const Icon = service.icon;
+          const Icon = iconMap[service.icon as keyof typeof iconMap];
           return (
             <div key={service.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
               <div className="relative">
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-40 lg:h-48 object-cover"
                 />
@@ -181,21 +188,21 @@ export default function ServicesManagement() {
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-4 lg:p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getCategoryColor(service.category)}`}>
                     {service.category}
                   </span>
                 </div>
-                
+
                 <div className="flex items-center gap-2 mb-3">
-                  <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-indigo-600 flex-shrink-0" />
+                  {Icon && <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-indigo-600 flex-shrink-0" />}
                   <h3 className="text-base lg:text-lg font-semibold text-gray-900 line-clamp-1">{service.title}</h3>
                 </div>
-                
+
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">{service.description}</p>
-                
+
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <span className="truncate">{service.contactInfo}</span>
@@ -204,7 +211,7 @@ export default function ServicesManagement() {
                     <span className="truncate">{service.website}</span>
                   </div>
                 </div>
-                
+
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Features:</h4>
                   <div className="flex flex-wrap gap-1">
@@ -220,7 +227,7 @@ export default function ServicesManagement() {
                     )}
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between">
                   <div className="flex gap-2">
                     <button className="text-indigo-600 hover:text-indigo-900 p-1" title="View">
