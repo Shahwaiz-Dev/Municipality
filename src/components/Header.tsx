@@ -338,11 +338,11 @@ export default function Header() {
 
   if (!hasMounted || !currentLanguage) return null;
 
-  const isActive = (href: string, dropdown?: any[]): boolean => {
+  const isActive = (href: string, dropdown?: unknown[]): boolean => {
     if (pathname.startsWith(href) && href !== "/") return true;
     if (href === pathname) return true;
     if (dropdown) {
-      return dropdown.some((item: any) => isActive(item.href, item.dropdown));
+      return dropdown.some((item: unknown) => isActive((item as any).href, (item as any).dropdown));
     }
     return false;
   };
@@ -357,7 +357,7 @@ export default function Header() {
     return index >= total - 2 ? "right-0" : "left-0";
   };
 
-  const renderMenu = (items: any[], depth = 0, isSubNav = false) => (
+  const renderMenu = (items: unknown[], depth = 0, isSubNav = false) => (
     <ul className={
       depth === 0
         ? isSubNav
@@ -368,19 +368,19 @@ export default function Header() {
           : "absolute bg-bg-light text-text-light shadow-lg rounded z-50 min-w-[200px] overflow-visible"
     }>
       {items.map((item, idx) => {
-        const itemKey = `${depth}-${item.href}`;
+        const itemKey = `${depth}-${(item as any).href}`;
         return (
           <li
-            key={item.name}
+            key={(item as any).name}
             className="relative group"
             onMouseEnter={() => {
-              if (item.dropdown) {
+              if ((item as any).dropdown) {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
                 setOpenDropdown(itemKey);
               }
             }}
             onMouseLeave={() => {
-              if (item.dropdown) {
+              if ((item as any).dropdown) {
                 closeTimer.current = setTimeout(() => {
                   setOpenDropdown(null);
                 }, 150);
@@ -388,33 +388,33 @@ export default function Header() {
             }}
           >
             <Link
-              href={item.href}
+              href={(item as any).href}
               onClick={(e) => {
-                if (item.dropdown && !isSubNav) {
+                if ((item as any).dropdown && !isSubNav) {
                   e.preventDefault();
                 }
               }}
               className={
                 depth === 0
                   ? `flex items-center md:px-2 px-1 py-1.5 font-medium ${isSubNav ? 'text-xs md:text-sm' : 'text-sm md:text-base'} tracking-wide uppercase transition-colors rounded whitespace-nowrap ` +
-                    (isActive(item.href, item.dropdown)
+                    (isActive((item as any).href, (item as any).dropdown)
                       ? "text-accent underline underline-offset-4 bg-primary"
                       : "text-text-light hover:text-text-dark hover:bg-primary")
                   : `flex items-center w-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors rounded ` +
-                    (isActive(item.href, item.dropdown)
+                    (isActive((item as any).href, (item as any).dropdown)
                       ? "bg-primary text-accent"
                       : "hover:bg-primary/10 text-text-light hover:text-text-dark")
               }
             >
-              {item.name}
-              {item.dropdown && (
+              {(item as any).name}
+              {(item as any).dropdown && (
                 <span className={depth === 0 ? "ml-1 text-xs" : "ml-auto text-xs"}>
                   {depth === 0 ? "▼" : "▶"}
                 </span>
               )}
             </Link>
             <AnimatePresence>
-              {item.dropdown && openDropdown === itemKey && (
+              {(item as any).dropdown && openDropdown === itemKey && (
                 <motion.div
                   variants={dropdownVariants}
                   initial="initial"
@@ -438,7 +438,7 @@ export default function Header() {
                     }, 150);
                   }}
                 >
-                  {renderMenu(item.dropdown, depth + 1, isSubNav && depth === 0)}
+                  {renderMenu((item as any).dropdown, depth + 1, isSubNav && depth === 0)}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -448,29 +448,29 @@ export default function Header() {
     </ul>
   );
 
-  const renderMobileMenu = (items: any[], parentKey = "") => (
+  const renderMobileMenu = (items: unknown[], parentKey = "") => (
     <ul className="pl-2">
       {items.map((item) => {
-        const key = parentKey + item.name;
+        const key = parentKey + (item as any).name;
         const isOpen = openMobileMenus.includes(key);
         return (
           <li key={key} className="mb-1">
             <div className="flex items-center justify-between">
               <Link
-                href={item.href}
-                className={`block py-1.5 font-medium text-sm tracking-wide uppercase rounded ${isActive(item.href, item.dropdown) ? "text-accent underline underline-offset-4 bg-primary" : "text-text-light hover:text-text-dark hover:bg-primary"}`}
+                href={(item as any).href}
+                className={`block py-1.5 font-medium text-sm tracking-wide uppercase rounded ${isActive((item as any).href, (item as any).dropdown) ? "text-accent underline underline-offset-4 bg-primary" : "text-text-light hover:text-text-dark hover:bg-primary"}`}
                 onClick={() => {
                   // On mobile, if it's a dropdown, just toggle it. Otherwise, close the menu.
-                  if (!item.dropdown) {
+                  if (!(item as any).dropdown) {
                     setIsMenuOpen(false);
                   }
                 }}
               >
-                {item.name}
+                {(item as any).name}
               </Link>
-              {item.dropdown && (
+              {(item as any).dropdown && (
                 <button
-                  aria-label={isOpen ? `Collapse ${item.name}` : `Expand ${item.name}`}
+                  aria-label={isOpen ? `Collapse ${(item as any).name}` : `Expand ${(item as any).name}`}
                   onClick={() => {
                     setOpenMobileMenus((prev) =>
                       isOpen ? prev.filter((k) => k !== key) : [...prev, key]
@@ -482,9 +482,9 @@ export default function Header() {
                 </button>
               )}
             </div>
-            {item.dropdown && isOpen && (
+            {(item as any).dropdown && isOpen && (
               <div className="pl-4 border-l border-primary">
-                {renderMobileMenu(item.dropdown, key)}
+                {renderMobileMenu((item as any).dropdown, key)}
               </div>
             )}
           </li>
@@ -552,7 +552,7 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             {/* Subheader nav: remove horizontal scrollbar, allow wrapping */}
             <nav className="flex flex-wrap items-center space-x-2 py-2 relative overflow-visible">
-              {renderMenu(subNavItems, 0, true)}
+              {renderMenu(subNavList, 0, true)}
             </nav>
           </div>
         </div>

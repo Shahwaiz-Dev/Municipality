@@ -36,7 +36,7 @@ export default function AdminDashboard() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">Welcome back! Here's what's happening with your municipality website.</p>
+          <p className="text-gray-600 mt-1">Welcome back! Here&apos;s what&apos;s happening with your municipality website.</p>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500">Last updated: {new Date().toLocaleString()}</span>
