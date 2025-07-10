@@ -342,7 +342,7 @@ export default function Header() {
     if (pathname.startsWith(href) && href !== "/") return true;
     if (href === pathname) return true;
     if (dropdown) {
-      return dropdown.some((item: unknown) => isActive((item as any).href, (item as any).dropdown));
+      return dropdown.some((item: unknown) => isActive((item as unknown as { href: string }).href, (item as unknown as { dropdown: unknown[] }).dropdown));
     }
     return false;
   };
@@ -368,19 +368,19 @@ export default function Header() {
           : "absolute bg-bg-light text-text-light shadow-lg rounded z-50 min-w-[200px] overflow-visible"
     }>
       {items.map((item, idx) => {
-        const itemKey = `${depth}-${(item as any).href}`;
+        const itemKey = `${depth}-${(item as unknown as { href: string }).href}`;
         return (
           <li
-            key={(item as any).name}
+            key={(item as unknown as { name: string }).name}
             className="relative group"
             onMouseEnter={() => {
-              if ((item as any).dropdown) {
+              if ((item as unknown as { dropdown: unknown[] }).dropdown) {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
                 setOpenDropdown(itemKey);
               }
             }}
             onMouseLeave={() => {
-              if ((item as any).dropdown) {
+              if ((item as unknown as { dropdown: unknown[] }).dropdown) {
                 closeTimer.current = setTimeout(() => {
                   setOpenDropdown(null);
                 }, 150);
@@ -388,33 +388,33 @@ export default function Header() {
             }}
           >
             <Link
-              href={(item as any).href}
+              href={(item as unknown as { href: string }).href}
               onClick={(e) => {
-                if ((item as any).dropdown && !isSubNav) {
+                if ((item as unknown as { dropdown: unknown[] }).dropdown && !isSubNav) {
                   e.preventDefault();
                 }
               }}
               className={
                 depth === 0
                   ? `flex items-center md:px-2 px-1 py-1.5 font-medium ${isSubNav ? 'text-xs md:text-sm' : 'text-sm md:text-base'} tracking-wide uppercase transition-colors rounded whitespace-nowrap ` +
-                    (isActive((item as any).href, (item as any).dropdown)
+                    (isActive((item as unknown as { href: string }).href, (item as unknown as { dropdown: unknown[] }).dropdown)
                       ? "text-accent underline underline-offset-4 bg-primary"
                       : "text-text-light hover:text-text-dark hover:bg-primary")
                   : `flex items-center w-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors rounded ` +
-                    (isActive((item as any).href, (item as any).dropdown)
+                    (isActive((item as unknown as { href: string }).href, (item as unknown as { dropdown: unknown[] }).dropdown)
                       ? "bg-primary text-accent"
                       : "hover:bg-primary/10 text-text-light hover:text-text-dark")
               }
             >
-              {(item as any).name}
-              {(item as any).dropdown && (
+              {(item as unknown as { name: string }).name}
+              {(item as unknown as { dropdown: unknown[] }).dropdown && (
                 <span className={depth === 0 ? "ml-1 text-xs" : "ml-auto text-xs"}>
                   {depth === 0 ? "▼" : "▶"}
                 </span>
               )}
             </Link>
             <AnimatePresence>
-              {(item as any).dropdown && openDropdown === itemKey && (
+              {(item as unknown as { dropdown: unknown[] }).dropdown && openDropdown === itemKey && (
                 <motion.div
                   variants={dropdownVariants}
                   initial="initial"
@@ -438,7 +438,7 @@ export default function Header() {
                     }, 150);
                   }}
                 >
-                  {renderMenu((item as any).dropdown, depth + 1, isSubNav && depth === 0)}
+                  {renderMenu((item as unknown as { dropdown: unknown[] }).dropdown, depth + 1, isSubNav && depth === 0)}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -451,26 +451,26 @@ export default function Header() {
   const renderMobileMenu = (items: unknown[], parentKey = "") => (
     <ul className="pl-2">
       {items.map((item) => {
-        const key = parentKey + (item as any).name;
+        const key = parentKey + (item as unknown as { name: string }).name;
         const isOpen = openMobileMenus.includes(key);
         return (
           <li key={key} className="mb-1">
             <div className="flex items-center justify-between">
               <Link
-                href={(item as any).href}
-                className={`block py-1.5 font-medium text-sm tracking-wide uppercase rounded ${isActive((item as any).href, (item as any).dropdown) ? "text-accent underline underline-offset-4 bg-primary" : "text-text-light hover:text-text-dark hover:bg-primary"}`}
+                href={(item as unknown as { href: string }).href}
+                className={`block py-1.5 font-medium text-sm tracking-wide uppercase rounded ${isActive((item as unknown as { href: string }).href, (item as unknown as { dropdown: unknown[] }).dropdown) ? "text-accent underline underline-offset-4 bg-primary" : "text-text-light hover:text-text-dark hover:bg-primary"}`}
                 onClick={() => {
                   // On mobile, if it's a dropdown, just toggle it. Otherwise, close the menu.
-                  if (!(item as any).dropdown) {
+                  if (!(item as unknown as { dropdown: unknown[] }).dropdown) {
                     setIsMenuOpen(false);
                   }
                 }}
               >
-                {(item as any).name}
+                {(item as unknown as { name: string }).name}
               </Link>
-              {(item as any).dropdown && (
+              {(item as unknown as { dropdown: unknown[] }).dropdown && (
                 <button
-                  aria-label={isOpen ? `Collapse ${(item as any).name}` : `Expand ${(item as any).name}`}
+                  aria-label={isOpen ? `Collapse ${(item as unknown as { name: string }).name}` : `Expand ${(item as unknown as { name: string }).name}`}
                   onClick={() => {
                     setOpenMobileMenus((prev) =>
                       isOpen ? prev.filter((k) => k !== key) : [...prev, key]
@@ -482,9 +482,9 @@ export default function Header() {
                 </button>
               )}
             </div>
-            {(item as any).dropdown && isOpen && (
+            {(item as unknown as { dropdown: unknown[] }).dropdown && isOpen && (
               <div className="pl-4 border-l border-primary">
-                {renderMobileMenu((item as any).dropdown, key)}
+                {renderMobileMenu((item as unknown as { dropdown: unknown[] }).dropdown, key)}
               </div>
             )}
           </li>
