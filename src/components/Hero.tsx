@@ -65,7 +65,6 @@ export default function Hero() {
                 sensitivity={180}
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 450, height: 450 }}
-                firstCardStraight={true}
                 cardsData={[
                   { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
                   { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },

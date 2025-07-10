@@ -329,7 +329,6 @@ export default function NewNewsArticle() {
                 </>
               ) : (
                 <>
-                  <DocumentTextIcon className="w-4 h-4" />
                   Publish Article
                 </>
               )}
