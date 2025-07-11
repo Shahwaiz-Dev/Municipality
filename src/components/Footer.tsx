@@ -1,8 +1,17 @@
+"use client";
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-dark text-text-light py-8 px-4 rounded-t-lg">
+    <motion.footer
+      className="bg-bg-dark text-text-light py-8 px-4 rounded-t-lg"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Municipality Info */}
@@ -70,7 +79,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            
             {/* Social Media */}
             <div className="mt-6">
               <h5 className="text-sm font-medium mb-3 text-indigo-200">Follow Us</h5>
@@ -116,6 +124,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 } 

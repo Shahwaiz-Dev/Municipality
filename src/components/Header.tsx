@@ -519,16 +519,22 @@ export default function Header() {
               {renderMenu(topNavItems)}
             </nav>
             <div className="flex items-center space-x-4">
-              <button
-                onClick={() => {
-                  const newLanguage = currentLanguage === "en" ? "el" : "en";
-                  setCurrentLanguage(newLanguage);
-                  localStorage.setItem("language", newLanguage);
-                }}
-                className="text-text-light hover:text-accent text-sm font-medium uppercase tracking-wider border border-text-light/20 rounded-md px-3 py-1 transition-colors hover:bg-primary/80"
-              >
-                {currentLanguage === "en" ? "EN | EL" : "EL | EN"}
-              </button>
+              {/* Language Switcher Dropdown */}
+              <div className="relative">
+                <select
+                  value={currentLanguage}
+                  onChange={e => {
+                    const newLanguage = e.target.value;
+                    setCurrentLanguage(newLanguage);
+                    localStorage.setItem('language', newLanguage);
+                  }}
+                  className="bg-primary text-text-dark border border-text-light/20 rounded-md px-3 py-1 text-sm font-medium uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-accent"
+                  aria-label="Select language"
+                >
+                  <option value="en" className='text-black'>English</option>
+                  <option value="el" className='text-black'>Ελληνικά</option>
+                </select>
+              </div>
               <Link
                 href="/admin"
                 className="bg-surface hover:bg-accent text-text-dark px-4 py-2 rounded-md text-sm font-bold uppercase tracking-wider transition-colors"
@@ -567,17 +573,21 @@ export default function Header() {
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 {renderMobileMenu(menu[currentLanguage as keyof typeof menu])}
                 <div className="px-3 py-2">
-                  <button
-                    onClick={() => {
-                      const newLanguage = currentLanguage === "en" ? "el" : "en";
+                  {/* Language Switcher Dropdown for mobile */}
+                  <select
+                    value={currentLanguage}
+                    onChange={e => {
+                      const newLanguage = e.target.value;
                       setCurrentLanguage(newLanguage);
-                      localStorage.setItem("language", newLanguage);
+                      localStorage.setItem('language', newLanguage);
                       setIsMenuOpen(false);
                     }}
-                    className="text-text-light hover:text-accent text-sm font-medium uppercase tracking-wider border border-text-light/20 rounded-md px-3 py-1 transition-colors hover:bg-primary/80"
+                    className="bg-primary text-text-dark border border-text-light/20 rounded-md px-3 py-1 text-sm font-medium uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-accent w-full"
+                    aria-label="Select language"
                   >
-                    {currentLanguage === "en" ? "EN | EL" : "EL | EN"}
-                  </button>
+                    <option value="en">English</option>
+                    <option value="el">Ελληνικά</option>
+                  </select>
                 </div>
               </div>
             </motion.div>
